@@ -21,11 +21,13 @@ def status(update, context):
 
     if status.players.online != 0:
         players = [i.name for i in status.players.sample]
+        if status.players.online == 1:
+            text = f"{status.players.online} player online: {', '.join(players)}."
+        else:
+            text = f"{status.players.online} players online: {', '.join(players)}."
     else:
-        players = []
+        text = "No players online."
 
-    text =  f"Server online. Latency: {status.latency}.\n" \
-            f"Players online: {', '.join(players)}"
 
     update.message.reply_text(text)
 
