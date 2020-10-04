@@ -28,7 +28,6 @@ def status(update, context):
     else:
         text = "No players online."
 
-
     update.message.reply_text(text)
 
 
