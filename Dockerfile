@@ -1,9 +1,8 @@
-FROM python:alpine
+FROM jfloff/alpine-python:3.6-onbuild
 
 COPY . /app
 WORKDIR /app
 
-RUN apt-get update -y && apt-get install apt-file -y && apt-file update -y && apt-get install -y python3-dev build-essential
-
+RUN pip install -r requirements.txt
 
 CMD ["python", "main.py"]
